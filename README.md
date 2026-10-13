@@ -1,45 +1,26 @@
-# 二手書交易平台｜Secondhand Book Marketplace
+# 二手書交易平台 | Secondhand Book Marketplace
 
-## 專案簡介
+使用 PHP、MySQL、HTML、CSS 與 JavaScript 製作的二手書交易系統，包含會員、書籍刊登、交易、訊息與評價等模組。
 
-本專案為使用 PHP 與 MySQL 開發的二手書交易平台，提供使用者進行二手書籍刊登、交易管理與買賣雙方溝通。
+## 專案結構
 
-系統區分買家與賣家角色，整合會員管理、書籍資訊、交易紀錄、訊息交流及評價等功能，模擬完整的二手書交易流程。
+- `app/`：依功能分類的後端處理程式。
+- 根目錄 `*.php`：網頁入口及舊路徑相容檔案。
+- `assets/`：CSS、JavaScript。
+- `database/schema.sql`：資料表結構。
+- `docs/FILE_GUIDE.md`：詳細檔案用途。
+- `uploads/`：使用者上傳檔案，預設不納入 Git。
 
-## 主要功能
+## 本機啟動
 
-- **會員管理**：提供買家與賣家註冊、登入、登出及個人資料修改功能。
-- **書籍管理**：賣家可上傳書籍圖片、刊登書籍資訊及管理書籍。
-- **商品瀏覽**：買家可瀏覽平台上架的二手書籍。
-- **交易管理**：提供下單、交易紀錄、完成交易及取消交易等功能。
-- **訊息交流**：買賣雙方可透過訊息功能進行溝通。
-- **使用者評價**：交易雙方可進行評價，並查看評價紀錄。
+1. 安裝 XAMPP，啟動 Apache 與 MySQL。
+2. 將本資料夾放進 XAMPP `htdocs/`。
+3. 在 phpMyAdmin 建立 `second_hand_book` 資料庫，匯入 `database/schema.sql`。
+4. 依本機環境設定 `DB_HOST`、`DB_PORT`、`DB_USER`、`DB_PASSWORD`、`DB_NAME`（參考 `.env.example`）。注意：PHP 不會自動讀取 `.env`，需自行於執行環境設定。
+5. 開啟 `http://localhost/secondhand-book-marketplace/index.php`。
 
-## 使用技術
+## 整理說明
 
-| 類別 | 技術 |
-|---|---|
-| 前端 | HTML、CSS、JavaScript |
-| 後端 | PHP |
-| 資料庫 | MySQL / MariaDB |
-| 資料庫管理工具 | phpMyAdmin |
-| 本機開發環境 | XAMPP |
+保留原本對外 PHP 路徑，將後端處理程式移到 `app/`，以減少既有表單和 AJAX 連結受到影響。尚未完成瀏覽器及資料庫端到端測試；部署前需測試登入、上架、下單、訊息及評價功能。
 
-## 系統架構
-
-本系統採用 PHP 處理伺服器端邏輯，透過 MySQL 儲存會員、書籍、交易、訊息與評價資料，並使用 HTML、CSS、JavaScript 建立使用者操作介面。
-
-## 本機執行方式
-
-1. 安裝並啟動 XAMPP 的 Apache 與 MySQL。
-2. 將專案資料夾放置於 `htdocs` 目錄。
-3. 使用 phpMyAdmin 建立 `second_hand_book` 資料庫。
-4. 匯入專案提供的資料庫 SQL 結構。
-5. 設定 `db_connection.php` 的本機資料庫連線資訊。
-6. 透過瀏覽器開啟 `http://localhost/my_book/index.php`。
-
-## 專案說明
-
-本專案以二手書交易情境為主題，整合網頁前後端開發與關聯式資料庫操作，實作會員、商品、交易及評價等系統功能。
-
-目前以本機環境執行為主，尚未提供公開線上展示網址。
+> 本專案為學習作品，正式公開部署前需再檢查驗證、授權與安全性。
